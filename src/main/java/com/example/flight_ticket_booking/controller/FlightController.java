@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalTime;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/api/flight/")
 public class FlightController {
