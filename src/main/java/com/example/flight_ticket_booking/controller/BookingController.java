@@ -5,12 +5,12 @@ import com.example.flight_ticket_booking.dto.GenericResponse;
 import com.example.flight_ticket_booking.dto.booking.BookingDto;
 import com.example.flight_ticket_booking.service.booking.BookingService;
 import com.example.flight_ticket_booking.utils.Constants;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-@CrossOrigin
 @RestController
 @RequestMapping("/api/booking")
 public class BookingController {
@@ -19,7 +19,7 @@ public class BookingController {
      private BookingService bookingService;
 
     @PostMapping("create")
-    public ResponseEntity<BaseResponse> createBookings(@RequestBody BookingDto bookingDto){
+    public ResponseEntity<BaseResponse> createBookings(@Valid @RequestBody BookingDto bookingDto){
          BaseResponse response = new BaseResponse();
          try{
              response = bookingService.createBooking(bookingDto);

@@ -34,6 +34,11 @@ public class BookingServiceImpl implements BookingService{
     @Override
     public BaseResponse createBooking(BookingDto bookingDto) {
         BaseResponse response = new BaseResponse();
+        if(bookingRepository.countAllUserByFlight(bookingDto.getUser(),bookingDto.getFlight()) >= 60){
+            response.setStatus(false);
+            response.setMessage(Constants.FLIGHT_IS_ALREADY_BOOKED);
+            return response;
+        }
         bookingRepository.save(dtoToEntityConverter.convert(bookingDto));
         response.setStatus(true);
         response.setMessage(Constants.SUCCESS);

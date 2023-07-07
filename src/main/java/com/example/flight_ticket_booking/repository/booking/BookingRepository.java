@@ -10,4 +10,7 @@ public interface BookingRepository extends JpaRepository<Booking,Long> {
 
     @Query("Select bk from Booking bk where bk.user.id = :cid")
     List<Booking> getAllBooking(Long cid);
+
+    @Query("select count(b) from Booking b where b.user.id = :id and b.flight.id = :flightId")
+    Long countAllUserByFlight(Long id,Long flightId);
 }

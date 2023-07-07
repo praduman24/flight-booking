@@ -53,7 +53,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
 
     @Override
     public Long getLoginedClient() {
-        User user = (User)SecurityContextHolder.getContext().getAuthentication().getCredentials();
+        User user = (User)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         return user.getId();
     }
 

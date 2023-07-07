@@ -19,4 +19,7 @@ public class Constants {
     public static final String WRONG_PASSWORD = "incorrect email please check again";
 
     public static final String FAILURE = "Failure please contact to admin";
+
+    public static final String FLIGHT_IS_ALREADY_BOOKED = "the flight is already booked please check another";
+
 }
